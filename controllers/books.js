@@ -64,7 +64,7 @@ router.get('/:id', (req,res) => {
 router.put('/:id', (req,res) => {
     const { id } = req.params
     db.Book.findByIdAndUpdate(id, req.body)
-        .then((book) => {
+        .then((books) => {
             res.status(200).json(books)
         })
         .catch((err) => {
@@ -76,7 +76,9 @@ router.delete('/:id', (req,res) => {
     const { id } = req.params
     db.Book.findByIdAndDelete(id)
         .then(() => {
-            res.status(200).json(books)
+            let validation = {'validation':'Delete Successful'
+        }
+        res.status(200).json(validation)
         })
         .catch((err) => {
             res.status(400).json(err)
