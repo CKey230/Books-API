@@ -47,7 +47,8 @@ router.get('/',(req,res) => {
             res.status(200).json(books)
         })
         .catch((err) => {
-            res.status(400).json(err)
+            console.log(err)
+            res.type('json').status(400).send(err)
         })
 })
 
@@ -57,18 +58,20 @@ router.get('/:id', (req,res) => {
             res.status(200).json(book)
         })
         .catch((err) => {
-            res.status(400).json(err)
+            console.log(err)
+            res.type('json').status(400).send(err)
         })
 })
 
 router.put('/:id', (req,res) => {
     const { id } = req.params
     db.Book.findByIdAndUpdate(id, req.body)
-        .then((books) => {
-            res.status(200).json(books)
+        .then((book) => {
+            res.status(200).json(book)
         })
         .catch((err) => {
-            res.status(400).json(err)
+            console.log(err)
+            res.type('json').status(400).send(err)
         })
 })
 
@@ -81,7 +84,8 @@ router.delete('/:id', (req,res) => {
         res.status(200).json(validation)
         })
         .catch((err) => {
-            res.status(400).json(err)
+            console.log(err)
+            res.type('json').status(400).send(err)
         })
 })
 
@@ -91,7 +95,8 @@ router.post('/', (req,res) => {
             res.status(200).json(books)
         })
         .catch((err) => {
-            res.status(400).json(err)
+            console.log(err)
+            res.type('json').status(400).send(err)
         })
 })
 
