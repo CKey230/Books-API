@@ -1,7 +1,5 @@
 const router = require('express').Router()
+const db = require('../models/books')
 
-router.get('/', (req,res) => {
-    res.send('GET/books')
-})
 
 module.exports = router 
