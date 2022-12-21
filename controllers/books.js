@@ -91,8 +91,8 @@ router.delete('/:id', (req,res) => {
 
 router.post('/', (req,res) => {
     db.Book.create(req.body)
-        .then(() => {
-            res.status(200).json(books)
+        .then((book) => {
+            res.status(200).json(book)
         })
         .catch((err) => {
             console.log(err)

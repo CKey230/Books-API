@@ -1,8 +1,9 @@
 const express = require('express')
 const methodOverride = require('method-override')
 const cors = require('cors')
-
 require('dotenv').config()
+
+const bookRoutes = require('./controllers/books')
 
 const app = express()
 
@@ -19,7 +20,7 @@ app.use(cors())
 
 
 //controllers
-app.use('/books', require('./controllers/books'))
+app.use('/books', bookRoutes)
 
 //root
 app.get('/', (req,res) => {
